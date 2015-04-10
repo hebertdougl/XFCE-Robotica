@@ -1,0 +1,121 @@
+#define P 50
+#define I 50
+#define D 50
+
+void Forward(int power){
+     OnFwd(OUT_BC, power);
+     
+}
+
+void StopMotor(){
+     Off(OUT_BC);
+}
+
+void Circle(int power){
+     OnFwd(OUT_B, power);
+     OnFwd(OUT_C, -power);
+
+}
+void Turn90(int power){
+     OnFwd(OUT_B, power);
+}
+void Garra(int power){
+     OnFwd(OUT_A, power);
+}
+void StopGarra(){
+     Off(OUT_A);
+}
+void pegaCarro(int time) {
+    OnFwd(OUT_A, 50);
+    Wait(time);
+    Off(OUT_A);
+}
+void AdvancedFunction(){
+  PlayTone(5000,30);
+  OnFwdSync(OUT_BC,100,0);
+  Wait(1000);
+  PlayTone(5000,30);
+  OnFwdSync(OUT_BC,50,20);
+  Wait(1000);
+  PlayTone(5000,30);
+  OnFwdSync(OUT_BC,50,-40);
+  Wait(1000);
+  PlayTone(5000,30);
+  OnRevSync(OUT_BC,50,90);
+  Wait(1000);
+  Off(OUT_BC);
+}
+void AdvancedFucntion2(){
+  //RotateMotorEx(OUT_BC, 50, 360, 0, true, true);
+ //RotateMotorEx(OUT_BC, 50, 360, 60, true, true);
+ //RotateMotorEx(OUT_BC, 50, 360, -40, true, true);
+  //RotateMotorEx(OUT_BC, 50, 360, 100, true, true);
+  //gira 90 graus
+  RotateMotorEx(OUT_BC, 70, 600, -100, true, true);
+}
+
+void RotateId(){
+  RotateMotorPID(OUT_B, 100, 180, 40, 40, 90);
+  Wait(3000);
+}
+
+task music()
+{
+  while (true)
+  {
+    PlayTone(262,400); Wait(500);
+    PlayTone(294,400); Wait(500);
+    PlayTone(330,400); Wait(500);
+    PlayTone(294,400); Wait(500);
+  }
+}
+void mission1() {
+  //PlayTone(5000,30);
+  //OnFwdSync(OUT_BC,100,0);
+  //Wait(1100);
+  //Off(OUT_BC);
+
+  PlayTone(5000,30);
+  OnFwdSync(OUT_BC,100,0);
+  Wait(2000);
+
+  //gira 90 graus
+  RotateMotorEx(OUT_BC, 75, 600, 100, true, true);
+
+  PlayTone(5000,30);
+  OnFwdSync(OUT_BC,100,0);
+  Wait(2000);
+  
+  pegaCarro(130);
+  
+  //gira 90 graus
+  RotateMotorEx(OUT_BC, 75, 600, 100, true, true);
+
+}
+
+task main(){
+     //Forward(100);
+     //Wait(SEC_1);
+     //Circle(70);
+     //Wait(SEC_5);
+     //Forward(-100);
+     //Wait(SEC_1);
+     //Turn90(50);
+//     Garra(10);
+  //   Wait(SEC_1);
+    // StopGarra();
+     //Garra(-10);
+     //Wait(SEC_1);
+     //RotateMotor(OUT_BC, 50, 360);
+     //StopMotor();
+   //AdvancedFucntion2();
+    //RotateMotorPID(OUT_BC, 75, 45, 20, 40, 100);
+    //Precedes(music, RotateId);
+    //RotateId();
+    mission1();
+    //pegaCarro(130);
+    //pegaCarro(130);
+    //Garra(-40);
+    //Wait(300);
+    //Off(OUT_A);
+}

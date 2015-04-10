@@ -1,0 +1,34 @@
+#define COMPRIMENTO 10.83
+#define POTENCIA 75
+
+int defineAngulo(int distancia){
+	int total = distancia * 360;
+	int angulo = total/COMPRIMENTO;
+     
+	return angulo;
+}
+
+void andarFrente(int distancia){
+	int angulo = defineAngulo(distancia);
+	RotateMotor(OUT_AC, POTENCIA, angulo);
+}
+
+void andarTras(int distancia){
+	int angulo = defineAngulo(distancia);
+	RotateMotor(OUT_AC, -POTENCIA, angulo);	
+}
+
+void virarDireita(int distancia){
+	int angulo = defineAngulo(distancia);
+	angulo = angulo/2;
+
+	RotateMotorEx(OUT_AC, POTENCIA, angulo, 50, true, true);
+}
+
+void virarEsquerda(int angulo){
+	
+}
+
+task main(){
+  RotateMotorEx(OUT_BC, 75, 600, 100, true, true);
+}
