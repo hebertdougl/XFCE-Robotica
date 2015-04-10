@@ -18,17 +18,25 @@ void andarTras(int distancia){
 	RotateMotor(OUT_AC, -POTENCIA, angulo);	
 }
 
-void virarDireita(int distancia){
-	int angulo = defineAngulo(distancia);
-	angulo = angulo/2;
+int girar(int angulo){
 
-	RotateMotorEx(OUT_AC, POTENCIA, angulo, 50, true, true);
+     int converte = (38.5*angulo/180);
+
+     return converte;
 }
 
 void virarEsquerda(int angulo){
+
+ int distancia = girar(angulo);
+	int anguloR = defineAngulo(distancia);
+
+	RotateMotorEx(OUT_AC, POTENCIA, anguloR, -100, true, true);
 	
 }
 
-task main(){
-  RotateMotorEx(OUT_BC, 75, 600, 100, true, true);
+void virarDireita(int angulo){
+     int distancia = girar(angulo);
+	int anguloR = defineAngulo(distancia);
+
+	RotateMotorEx(OUT_AC, POTENCIA, anguloR, 100, true, true);
 }
