@@ -1,5 +1,19 @@
 #include "moviment.nxc"
+#include "sensor.h"
 
 task main(){
-	andarFrente(15);
+	andarFrente(40);
+	virarDireita(90);
+	andarFrente(7);
+	// baixarGarra(40);
+	virarEsquerda(5);
+	andarFrente(55);
+	// levantarGarra(20);
+	andarFrente(10);
+	// baixarGarra(20);
+	andarFrente(50);
+	virarEsquerda(10);
+	andarFrente(30);
+	virarEsquerda(10);
+	andarFrente(40);
 }
