@@ -1,0 +1,30 @@
+#include "moviment.nxc"
+#define NEAR 15 //cm
+
+void sensorUltrassonico(){
+    SetSensorLowspeed(IN_4);
+    while(true){
+        OnFwd(OUT_AC,50);
+        while(SensorUS(IN_4)>NEAR)
+        Off(OUT_AC);
+        // OnRev(OUT_AC,100);
+        Wait(800);
+    }
+}
+
+void sensorUltrassonico1(){
+    SetSensorLowspeed(IN_4);
+    while(true){
+        OnFwd(OUT_AC,50);
+        while(SensorUS(IN_4)>NEAR)
+        Off(OUT_AC);
+        // OnRev(OUT_AC,100);
+        Wait(800);
+    }
+}
+
+task main(){
+	sensorUltrassonico1();
+}
+
+
