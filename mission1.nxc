@@ -4,21 +4,14 @@ task main(){
 	andarFrente(40);
 	virarDireita(90);
 	andarFrente(9);
-	// baixarGarra(40);
 	virarDireita(12);
 	andarFrente(55);
-	// levantarGarra(20);
-	//andarFrente(10);
-	// baixarGarra(20);
 	andarFrente(60);
 	virarEsquerda(10);
-	//andarFrente(30);
-	//virarEsquerda(15);
 	andarFrente(75);
 
-	//mission2
+	//mission2 Seta
 	andarTras(70);
 	virarDireita(27);
 	andarFrente(55);
-
 }
