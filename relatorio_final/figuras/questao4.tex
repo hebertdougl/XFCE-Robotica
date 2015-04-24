@@ -1,0 +1,21 @@
+A MME surgiu devido  aos problemas apresentadas pela RFC 822 que consistia exclusivamente em mensagens de texto escritas em linguagem comum e expressas em código ASCII. Problemas como o envio e recebimento de mensagens com acentos, em alfabetos não-latinos, idiomas sem alfabetos e mensagens que não apresentam texto como imagens e aúdio. O cabeçalho do RF822 está descrito a seguir:
+
+\begin{itemize}
+\item \textbf{Date:} a data e a hora em que a mensagem foi enviada;
+\item \textbf{Reply-To:} o endereço de correio eletrônico para onde as respostas devem ser enviadas;
+\item \textbf{Message-Id:} número exclusivo que faz referência a essa mensagem posteriormente;
+\item \textbf{In-Reply-To:} \textbf{Message-Id} da mensagem original correspondente a essa resposta;
+\item \textbf{References: } outras \textbf{Message-Id} relevantes;
+\item \textbf{Keywords: } palavras chave do usuário;
+\item \textbf{Subject: } resumo da mensagem apresentado em apenasuma linha.
+\end{itemize}
+
+Dessa maneira surgiu a RFC 1341 e atualizada RFCs 2045 a 2049 que foram denominadas de MME (Multipurpoose Internet Mail Extensions) que é amplamente utilizada. Esta continua usando a RFC822 mas inclui as regras para mensagens que não utiliam ASCII, além disso ele inclui cinco cabeçalhos
+
+\begin{itemize}
+\item \textbf{MME-Version:} identifica  versão do MIME;
+\item \textbf{Cotent description:} identifica o conteúdo da mensagem;
+\item \textbf{Content-Id:} identificador exclusivo;
+\item \textbf{Content-Transfer-Encondig:} como o corpo da mensagem é codificado para transmissão;
+\item \textbf{Cotent-Type} tipo e formato do conteúdo.
+\end{itemize}
