@@ -9,9 +9,6 @@
 #logs
 *.log
 
-#PDFs
-*.pdf
-
 *.lof
 *.lot
 *.bbl
