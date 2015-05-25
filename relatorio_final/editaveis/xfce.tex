@@ -45,8 +45,25 @@ Inicialmente o grupo tinha maior interesse na linguagem Java, principalmente pel
 Ambulância                                    & Uma ambulância se encontra no mapa do desafio. O objetivo é que o robô empurre a ambulância sem virar ou tombá-la até a parte indicada no mapa, em azul. & 25                                      & Média                                     \\ \hline
 Caminhão                                      & Um caminhão se encontra no mapa do desafio. O objetivo é que o robô empurre o caminhão sem virar ou tombar até a parte indicada no mapa, em azul.        & 20                                      & Média                                     \\ \hline
 Seta                                          & Uma seta é localizada no mapa. O robô tem como objetivo empurrar a seta, levantando assim a placa.                                                       & 30                                      & Média                                     \\ \hline
+Tsunami                                       & Uma rampa deve sofrer colisão, derrubando assim os canudos armazenados.                                                       & 20                                      & Fácil                                     \\ \hline
+Safe Place                                    & O robô deve chegar com segurança à área vermelha do mapa.                                     & 25                                      & Fácil                                     \\ \hline
+Uso de sensor                                 & O robô deve usar, de maneira util, algum dos sensores no auxílio das missões.                                     & 25                                      & Média                                     \\ \hline
+Música                                 & O robô deve emitir sons em algum momento durante a execução de alguma missão.                                     & 5                                      & Fácil                                     \\ \hline
+Supplies and Equipment                         & Os itens presentes no caminhão devem chegar de maneira segura até a área demarcada no mapa.                                     & 3*3                                      & Dificil                                     \\ \hline
+Safety                         & Pessoas devem permanecer na área vermelha do mapa durante a execução das missões.                                     & 18                                      & Média                                     \\ \hline
+Runway                         & Nada deve tocar a área de evacuação do tapete (área próxima à seta).                                     & 30                                      & Média                                     \\ \hline
+
+
+
+
 \end{tabular}
 \end{table}
+
+\section{Contagem dos pontos}
+\begin{equation}
+  T = 40+60+75+5+9+18 = 207
+\end{equation}
+
 
 \section{Priorização}
 
@@ -55,13 +72,20 @@ As missões são feitas em uma determinada ordem determinada pelo grupo baseado.
 A priorização escolhida foi:
 
 \begin{enumerate}
-\item Trator;
+\item Tsunami;
+\item Sensor auxiliando no Tsunami;
+\item Caminhão;
 \item Ambulância;
-\item Seta.
+\item Supplies and Equipment;
+\item Runway;
+\item Safety;
+\item Seta;
+\item Safe Place;
+\item Música.
 \end{enumerate}
 
 \section{Justificativa}
-Como já citado, seguindo-se um fluxo comum de tarefas, o tempo é otimizado. O robô então captura a ambulância e em seguida o trator (são próximos um do outro), completa este objetivo chegando à faixa azul, e em seguida completa-se a missão da seta. Se a missão da seta fosse feita primeiro, o robô teria que voltar até o início do mapa e empurrar de novo, gastando temo desnecessário (além de estar mais propenso a variações).
+Como já citado, seguindo-se um fluxo comum de tarefas, o tempo é otimizado. Começa-se com a tarefa Tsunami (com auxílio do sensor de presença), pois fica próxima à área inicial, permitindo assim que o robô seja resetado, corrigindo assim sua posição e execução do código. O robô então captura a ambulância e em seguida o trator (são próximos um do outro), completa este objetivo chegando à faixa azul, levando junto os suprimentos do caminhão, e em seguida completa-se a missão da seta. Se a missão da seta fosse feita primeiro, o robô teria que voltar até o início do mapa e empurrar de novo, gastando tempo desnecessário (além de estar mais propenso a variações). Por fim, o robô chega com segurança à área vermelha, e emite uma música (\emph{Mario Theme}).
 
 \chapter{Solução em Software das missões}
 
@@ -71,11 +95,13 @@ Para a codificação das missões sentiu-se a necessidade de realizar a modulari
 % \begin{lstlisting}[numbers=none, breaklines=true]
 % \end{lstlisting}
 
-A vantagem dessa modularização é que o código das missões fica mais enxuto facilitando a leitura e o desenvolvimento pois a implementação segue a lógica em que cada chamada de função é um passo a ser realizado para completá-las. Abaixo segue o código do arquivo \textbf{\textit{mission1.nxc}} com as missões realizadas (Trator, Ambulância, Seta).
+A vantagem dessa modularização é que o código das missões fica mais enxuto facilitando a leitura e o desenvolvimento pois a implementação segue a lógica em que cada chamada de função é um passo a ser realizado para completá-las. Abaixo segue o código do arquivo \textbf{\textit{mission1.nxc}} e \textbf{\textit{mission2.nxc}} com as missões realizadas (Trator, Ambulância, Seta, Área vermelha, Tsunami, etc).
 
 \lstinputlisting[language=C]{../mission1.nxc}
+\lstinputlisting[language=C]{../mission2.nxc}
+\lstinputlisting[language=C]{../sensor.nxc}
 
-Além disso foi criado um arquivo \textit{MakeFile} para definir regras e facilitar compilação dos códigos realizados. 
+Além disso foi criado um arquivo \textit{MakeFile} para definir regras e facilitar compilação dos códigos realizados.
 
 \lstinputlisting[language=make]{../Makefile}
 
