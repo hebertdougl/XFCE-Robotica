@@ -16,7 +16,7 @@ task main(){
 	//mission2 Seta
 	andarTrasRapido(70);
 	virarDireita(36);
-	andarFrente(55);
+	andarFrente(60);
 	andarTras(20);
 	virarDireita(22);
 	andarFrente(55);
