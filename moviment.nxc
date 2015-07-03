@@ -8,6 +8,11 @@ int defineAngulo(int distancia){
     return angulo;
 }
 
+void andarFrenteRapido(int distancia){
+    int angulo = defineAngulo(distancia);
+    RotateMotor(OUT_AC, 100, angulo);
+}
+
 void andarFrente(int distancia){
     int angulo = defineAngulo(distancia);
     RotateMotor(OUT_AC, POTENCIA, angulo);
@@ -16,6 +21,11 @@ void andarFrente(int distancia){
 void andarTras(int distancia){
     int angulo = defineAngulo(distancia);
     RotateMotor(OUT_AC, -POTENCIA, angulo);
+}
+
+void andarTrasRapido(int distancia){
+    int angulo = defineAngulo(distancia);
+    RotateMotor(OUT_AC, -100, angulo);
 }
 
 int girar(int angulo){
@@ -38,10 +48,25 @@ void virarDireita(int angulo){
     RotateMotorEx(OUT_AC, POTENCIA, anguloR, 100, true, true);
 }
 
+void virarDireitaPouco(int angulo){
+    int distancia = girar(angulo);
+    int anguloR = defineAngulo(distancia);
+
+    RotateMotorEx(OUT_AC, POTENCIA, anguloR, 50, true, true);
+}
+
+void virarEsquerdaPouco(int angulo){
+    int distancia = girar(angulo);
+    int anguloR = defineAngulo(distancia);
+
+    RotateMotorEx(OUT_AC, POTENCIA, anguloR, -50, true, true);
+}
+
+
 void baixarGarra(int angulo){
     RotateMotor(OUT_B, 50, angulo);
 }
 
 void levantarGarra(int angulo){
-    RotateMotor(OUT_B, 50, -angulo);
+    RotateMotor(OUT_B, 100, -angulo);
 }

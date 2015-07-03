@@ -1,0 +1,50 @@
+const int C4 = 262;
+const int D4 = 294;
+const int E4 = 330;
+const int F4 = 349;
+const int G4 = 392;
+const int A4 = 440;
+const int As4 = 466;
+const int B4 = 494;
+const int C5 = 523;
+const int Cs5 = 554;
+const int D5 = 587;
+const int Ds5 = 622;
+const int E5 = 659;
+const int F5 = 698;
+const int Fs5 = 740;
+const int G5 = 784;
+const int A5 = 880;
+const int C6 = 1047;
+
+void PlayMario()
+{
+
+    PlayTone(E5, 150); Wait(300);
+    PlayTone(E5, 300); Wait(300);
+    PlayTone(E5, 300); Wait(300);
+    PlayTone(C5, 100); Wait(300);
+    PlayTone(E5, 300); Wait(300);
+    PlayTone(G5, 550); Wait(300);
+    PlayTone(G4, 575); Wait(300);
+
+    for (int i=0; i<2; i++) {
+        PlayTone(C5, 450); Wait(300);
+        PlayTone(G4, 400); Wait(300);
+        PlayTone(E4, 500); Wait(300);
+        PlayTone(A4, 300); Wait(300);
+        PlayTone(B4, 330); Wait(240);
+        PlayTone(As4, 150); Wait(300);
+        PlayTone(A4, 300); Wait(300);
+        PlayTone(G4, 200); Wait(300);
+        PlayTone(E5, 200); Wait(240);
+        PlayTone(G5, 150); Wait(150);
+        PlayTone(A5, 300); Wait(300);
+        PlayTone(F5, 150); Wait(240);
+        PlayTone(G5, 350); Wait(150);
+        PlayTone(E5, 300); Wait(240);
+        PlayTone(C5, 150); Wait(240);
+        PlayTone(D5, 150); Wait(240);
+        PlayTone(B4, 500); Wait(240);
+    }
+}

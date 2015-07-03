@@ -1,4 +1,5 @@
 #define NEAR 15 //cm
+#define THRESHOLD 40
 
 //usar sensor na porta 4
 void sensorUltrassonico(){
@@ -9,5 +10,37 @@ void sensorUltrassonico(){
         Off(OUT_AC);
         OnRev(OUT_AC,100);
         Wait(800);
+    }
+}
+
+void sensorUltrassonico1(int distancia){
+    SetSensorLowspeed(IN_4);
+    while(true){
+        //Verificar se a função está funcionando
+        OnFwd(OUT_AC,76);
+        //andarFrente(75);
+        Wait(800);
+        if(SensorUS(IN_4) <= distancia){
+            Off(OUT_AC);
+            break;
+        }
+
+    }
+}
+
+// #define COLORSENSOR SENSOR_2 -- ou outra porta onde esteja o sensor de cor (PORTA S2)
+
+void sensorLuz(){
+    SetSensorColorRed(IN_3); // ou SetSensor(S3,SENSOR_COLORRED);
+    OnFwd(OUT_AC, 75);
+    while (true){
+        if (Sensor(IN_3) > THRESHOLD){
+            OnRev(OUT_C, 75);
+            Wait(100);
+            ClearScreen();
+            // NumOut(0, 0, COLORSENSOR);
+            until(Sensor(IN_3) <= THRESHOLD);
+            OnFwd(OUT_AC, 75);
+        }
     }
 }
