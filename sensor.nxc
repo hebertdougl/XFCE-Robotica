@@ -16,9 +16,7 @@ void sensorUltrassonico(){
 void sensorUltrassonico1(int distancia){
     SetSensorLowspeed(IN_4);
     while(true){
-        //Verificar se a função está funcionando
         OnFwd(OUT_AC,76);
-        //andarFrente(75);
         Wait(800);
         if(SensorUS(IN_4) <= distancia){
             Off(OUT_AC);
