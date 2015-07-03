@@ -1,0 +1,17 @@
+#include "moviment.nxc"
+#include "music.nxc"
+#include "sensor.nxc"
+
+task main(){
+    // virarDireitaPouco(55);
+    // andarFrente(5);
+    // virarEsquerdaPouco(57);
+    andarFrente(73);
+    levantarGarra(40);
+    baixarGarra(20);
+    levantarGarra(40);
+    baixarGarra(25);
+    levantarGarra(40);
+    baixarGarra(30);
+    andarTrasRapido(60);
+}

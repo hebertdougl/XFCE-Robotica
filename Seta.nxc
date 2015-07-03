@@ -1,0 +1,18 @@
+#include "moviment.nxc"
+#include "music.nxc"
+#include "sensor.nxc"
+
+task main(){
+	andarFrente(50);
+	virarDireita(92);
+	andarFrente(90);
+	andarFrente(90);
+
+	//mission2 Seta
+	andarTrasRapido(20);
+  virarDireita(50);
+	andarFrenteRapido(45);
+
+
+	// sensorLuz();
+}
