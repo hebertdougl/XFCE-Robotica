@@ -15,7 +15,7 @@ FIXOS_SOURCES = informacoes.tex novosComandos.tex fichaCatalografica.tex \
 FIXOS_FILES = $(addprefix $(FIXOS_DIR)/, $(FIXOS_SOURCES))
 
 EDITAVEIS_DIR = editaveis
-EDITAVEIS_SOURCES = informacoes.tex
+EDITAVEIS_SOURCES = informacoes.tex apendices.tex
 
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
 
