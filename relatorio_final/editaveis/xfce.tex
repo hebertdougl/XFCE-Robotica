@@ -39,18 +39,22 @@ Inicialmente o grupo tinha maior interesse na linguagem Java, principalmente pel
 \section{Descrição}
 
 \begin{table}[h]
-\begin{tabular}{|l|p{8cm}|c|c|}
+\begin{tabular}{|p{3.5cm}|p{7.5cm}|c|c|}
 \hline
 \multicolumn{1}{|c|}{\textbf{Nome da missão}} & \multicolumn{1}{c|}{\textbf{Descrição}}                                                                                                                  & \multicolumn{1}{c|}{\textbf{Pontuação}} & \multicolumn{1}{c|}{\textbf{Dificuldade}} \\ \hline
 Ambulância                                    & Uma ambulância se encontra no mapa do desafio. O objetivo é que o robô empurre a ambulância sem virar ou tombá-la até a parte indicada no mapa, em azul. & 25                                      & Média                                     \\ \hline
 Caminhão                                      & Um caminhão se encontra no mapa do desafio. O objetivo é que o robô empurre o caminhão sem virar ou tombar até a parte indicada no mapa, em azul.        & 20                                      & Média                                     \\ \hline
 Seta                                          & Uma seta é localizada no mapa. O robô tem como objetivo empurrar a seta, levantando assim a placa.                                                       & 30                                      & Média                                     \\ \hline
 Tsunami                                       & Uma rampa deve sofrer colisão, derrubando assim os canudos armazenados.                                                       & 20                                      & Fácil                                     \\ \hline
+Family                                        & O robô deve deve carregar três pessoas juntas (a famíia), até uma área colorida. & 33*2 & Média                                    \\ \hline
+Tree Branch                                   & O robô deve derrubar o galho da árvore sem deixar que caia no poste.                                        & 30        & Médio         \\ \hline
 Safe Place                                    & O robô deve chegar com segurança à área vermelha do mapa.                                     & 25                                      & Fácil                                     \\ \hline
 Uso de sensor                                 & O robô deve usar, de maneira util, algum dos sensores no auxílio das missões.                                     & 25                                      & Média                                     \\ \hline
 Música                                 & O robô deve emitir sons em algum momento durante a execução de alguma missão.                                     & 5                                      & Fácil                                     \\ \hline
 Supplies and Equipment                         & Os itens presentes no caminhão devem chegar de maneira segura até a área demarcada no mapa.                                     & 3*3                                      & Dificil                                     \\ \hline
+Water                                 & O robô deve carregar a pessoa junto com a água   & 15    & Fácil \\ \hline
 Safety                         & Pessoas devem permanecer na área vermelha do mapa durante a execução das missões.                                     & 18                                      & Média                                     \\ \hline
+Gerador                   & O robô deve levar o gerador até a área vermelha.        &   4   & Fácil   \\ \hline
 Runway                         & Nada deve tocar a área de evacuação do tapete (área próxima à seta).                                     & 30                                      & Média                                     \\ \hline
 
 
@@ -61,9 +65,17 @@ Runway                         & Nada deve tocar a área de evacuação do tapet
 
 \section{Contagem dos pontos}
 \begin{equation}
-  T = 40+60+75+5+9+18 = 207
+  T1 = 40+80+75+5+9+18 = 227
 \end{equation}
-
+\begin{equation}
+  T2 = 30+33+30+18+4 = 115
+\end{equation}
+\begin{equation}
+  T3 = 33+15+18 = 66
+\end{equation}
+\begin{equation}
+  TOTAL = 227+115+66 = 407
+\end{equation}
 
 \section{Priorização}
 
@@ -72,20 +84,21 @@ As missões são feitas em uma determinada ordem determinada pelo grupo baseado.
 A priorização escolhida foi:
 
 \begin{enumerate}
-\item Tsunami;
-\item Sensor auxiliando no Tsunami;
-\item Caminhão;
-\item Ambulância;
+\item Caminhão e Ambulância
 \item Supplies and Equipment;
+\item Voltar para a base
+\item Tsunami com Sensor;
+\item Captura item e leva para a base;
+\item Galho da Arvore;
+\item Seta
+\item Safe Place
+\item Música
 \item Runway;
 \item Safety;
-\item Seta;
-\item Safe Place;
-\item Música.
 \end{enumerate}
 
 \section{Justificativa}
-Como já citado, seguindo-se um fluxo comum de tarefas, o tempo é otimizado. Começa-se com a tarefa Tsunami (com auxílio do sensor de presença), pois fica próxima à área inicial, permitindo assim que o robô seja resetado, corrigindo assim sua posição e execução do código. O robô então captura a ambulância e em seguida o trator (são próximos um do outro), completa este objetivo chegando à faixa azul, levando junto os suprimentos do caminhão, e em seguida completa-se a missão da seta. Se a missão da seta fosse feita primeiro, o robô teria que voltar até o início do mapa e empurrar de novo, gastando tempo desnecessário (além de estar mais propenso a variações). Por fim, o robô chega com segurança à área vermelha, e emite uma música (\emph{Mario Theme}).
+Como já citado, seguindo-se um fluxo comum de tarefas, o tempo é otimizado. Começa-se com a tarefa Caminhão e Ambulância, pois é a missão mais difícil, e, caso ela fracasse, uma nova tentativa já é feita. Em seguida, volta-se a base, e então é feito o Tsunami. O Tsunami fica perto do galho, dos itens, e da base, logo essas três coisas são feitas uma após a outra, mas a ordem não importa. Ao fim, o robô volta à base, é ajeitado, e a missão da seta é feita, em seguida a do gerador, a música é tocada, finalizando assim o desafio.
 
 \chapter{Solução em Software das missões}
 
